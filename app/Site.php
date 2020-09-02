@@ -2,11 +2,11 @@
 
 namespace App;
 
-class Site extends BaseModel
+use Illuminate\Database\Eloquent\Model;
+
+class Site extends Model
 {
     protected $guarded = [];
-
-    protected $collection = 'sites';
 
     public function subscribers()
     {
@@ -27,6 +27,4 @@ class Site extends BaseModel
     {
         return $this->hasMany(Email::class);
     }
-
-
 }

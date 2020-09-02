@@ -18,6 +18,11 @@ Route::get('/',  function () {
 });
 
 Route::get('/email-logs', function () {
-    return \App\Site::with('emails')
-        ->find('5f4e6346f5cefe7f3b3684d3')->toArray();
+    return \App\Site::with(['emails.logs' => function ($q) {
+        $q->limit(2);
+    }])
+        ->latest()
+        ->limit(1)
+        ->find(1)
+        ->toArray();
 });

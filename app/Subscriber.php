@@ -8,10 +8,17 @@ class Subscriber extends BaseModel
 
     public $incrementing = false;
 
-    protected $collection = 'subscribers';
-
     public function lists()
     {
         return $this->hasMany(ListSubscriber::class);
+    }
+
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+
+        if (isset($attributes['collection'])) {
+            $this->collection = 'subscribers_site_' . $attributes['collection'];
+        }
     }
 }

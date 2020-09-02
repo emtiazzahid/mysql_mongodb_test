@@ -13,13 +13,13 @@ class CreateListSubscribersTable extends Migration
      */
     public function up()
     {
-        Schema::create('list_subscribers', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('site_id');
-            $table->uuid('subscriber_id');
-            $table->string('status');
-            $table->timestamps();
-        });
+//        Schema::create('list_subscribers', function (Blueprint $table) {
+//            $table->id();
+//            $table->unsignedBigInteger('site_id');
+//            $table->uuid('subscriber_id');
+//            $table->string('status');
+//            $table->timestamps();
+//        });
     }
 
     /**
@@ -29,6 +29,6 @@ class CreateListSubscribersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('list_subscribers');
+//        Schema::dropIfExists('list_subscribers');
     }
 }

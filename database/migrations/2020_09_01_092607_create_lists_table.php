@@ -13,12 +13,12 @@ class CreateListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lists', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->unsignedBigInteger('site_id');
-            $table->string('name');
-            $table->timestamps();
-        });
+//        Schema::create('lists', function (Blueprint $table) {
+//            $table->uuid('id')->primary();
+//            $table->unsignedBigInteger('site_id');
+//            $table->string('name');
+//            $table->timestamps();
+//        });
     }
 
     /**
@@ -28,6 +28,6 @@ class CreateListsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lists');
+//        Schema::dropIfExists('lists');
     }
 }

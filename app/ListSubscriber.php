@@ -6,5 +6,12 @@ class ListSubscriber extends BaseModel
 {
     protected $guarded = [];
 
-    protected $collection = 'list_subscribers';
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+
+        if (isset($attributes['collection'])) {
+            $this->collection = 'list_subscribers_site_' . $attributes['collection'];
+        }
+    }
 }

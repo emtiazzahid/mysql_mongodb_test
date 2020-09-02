@@ -2,14 +2,19 @@
 
 namespace App;
 
-class Email extends BaseModel
-{
-    protected $guarded = [];
+use Illuminate\Database\Eloquent\Model;
+use Jenssegers\Mongodb\Eloquent\HybridRelations;
 
-    protected $collection = 'emails';
+class Email extends Model
+{
+    use HybridRelations;
+
+    protected $connection = 'mysql';
+
+    protected $guarded = [];
 
     public function logs()
     {
-        return $this->hasMany(EmailLog::class);
+        return $this->hasMany(new EmailLog(['collection' => $this->site_id]));
     }
 }

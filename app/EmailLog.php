@@ -6,5 +6,12 @@ class EmailLog extends BaseModel
 {
     protected $guarded = [];
 
-    protected $collection = 'email_logs';
+    public function __construct($attributes = [])
+    {
+        parent::__construct($attributes);
+
+        if (isset($attributes['collection'])) {
+            $this->collection = 'email_logs_site_' . $attributes['collection'];
+        }
+    }
 }
